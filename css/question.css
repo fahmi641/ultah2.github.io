@@ -1,0 +1,150 @@
+/* =========================
+   IMPORT STYLE UTAMA
+========================= */
+@import url('app.css');
+
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+/* =========================
+   PAGE TRANSITION
+   (TANPA BACKGROUND)
+========================= */
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    transition:
+        opacity 0.6s ease-in-out,
+        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.page.loaded {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.page.leaving {
+    opacity: 0;
+    transform: translateY(-20px) scale(1.02);
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+    text-align: center;
+    padding: 24px;
+    animation: floatIn 0.9s ease;
+}
+
+/* =========================
+   TEXT
+========================= */
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    opacity: 0.85;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   BUTTON WRAPPER
+========================= */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* =========================
+   BUTTON BASE
+========================= */
+.btn {
+    padding: 14px 36px;
+    font-size: 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+/* =========================
+   YES BUTTON
+========================= */
+.yes {
+    background: #ffffff;
+    color: #ff4d6d;
+    font-weight: 600;
+}
+
+.yes:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4);
+}
+
+/* =========================
+   NO BUTTON
+========================= */
+.no {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    color: #fff;
+}
+
+.no:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 480px) {
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 260px;
+        margin: auto;
+    }
+}

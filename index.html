@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="page">
+
+    <div class="particles"></div>
+
+    <div class="container">
+        <h1>HI NASYA!!</h1>
+        <p class="subtitle">AKU ADA SOMETHING NIH BUATMU!! ❤️</p>
+        <a href="question.html" class="btn transition-link">BUKA YEE</a>
+    </div>
+
+    <!-- JS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("loaded");
+
+            document.querySelectorAll(".transition-link").forEach(link => {
+                link.addEventListener("click", e => {
+                    e.preventDefault();
+
+                    document.body.classList.remove("loaded");
+                    document.body.classList.add("leaving");
+
+                    setTimeout(() => {
+                        window.location.href = link.getAttribute("href");
+                    }, 700);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

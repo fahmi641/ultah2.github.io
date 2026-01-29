@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/question.css">
+</head>
+<body class="page">
+
+<div class="container">
+    <h1>HALLO LAGI!</h1>
+    <p class="subtitle">
+        CUMA BOLEH TEKAN NO NYA 2X<br>
+        BARU BISA TEKAN YES 😜
+    </p>
+
+    <div class="buttons">
+        <a href="surprise.html" class="btn yes transition-link">YES!!</a>
+        <button class="btn no" onclick="moveButton()">NO, THANKS.</button>
+    </div>
+</div>
+
+<script>
+/* PAGE TRANSITION */
+document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+
+    document.querySelectorAll(".transition-link").forEach(link => {
+        link.addEventListener("click", e => {
+            e.preventDefault();
+
+            document.body.classList.remove("loaded");
+            document.body.classList.add("leaving");
+
+            setTimeout(() => {
+                window.location.href = link.getAttribute("href");
+            }, 700);
+        });
+    });
+});
+
+/* NO BUTTON RUN AWAY */
+let clickCount = 0;
+
+function moveButton() {
+    const btn = document.querySelector('.no');
+    clickCount++;
+
+    const x = Math.random() * 220 - 110;
+    const y = Math.random() * 180 - 90;
+
+    btn.style.transform = `translate(${x}px, ${y}px)`;
+
+    // Optional: kasih efek lucu
+    if (clickCount >= 2) {
+        btn.innerText = "OKE DEH 😭";
+    }
+}
+</script>
+
+</body>
+</html>

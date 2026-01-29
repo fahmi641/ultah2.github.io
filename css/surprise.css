@@ -1,0 +1,212 @@
+/* =================================================
+   GOOGLE FONTS
+================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&family=Montserrat:wght@400;500&display=swap');
+
+
+/* =================================================
+   RESET & GLOBAL
+================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #3a0000, #7a0b0b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    overflow: hidden;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+
+/* =================================================
+   CONTAINER
+================================================= */
+.container {
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+    text-align: center;
+}
+
+
+/* =================================================
+   TITLE
+================================================= */
+.title {
+    position: relative;
+    margin-bottom: 50px;
+
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+
+    background: linear-gradient(45deg, #ffffff, #ffd6d6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+}
+
+/* Decorative line */
+.title::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    opacity: 0.8;
+}
+
+
+/* =================================================
+   ITEMS GRID
+================================================= */
+.items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+
+/* =================================================
+   ITEM
+================================================= */
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Icon */
+.item img {
+    width: 80px;
+    filter: invert(1);
+    cursor: pointer;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+/* Text */
+.item p {
+    margin-top: 12px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    opacity: 0.85;
+
+    transition: 0.3s ease;
+}
+
+/* Hover */
+.item img:hover {
+    transform: scale(1.15);
+    opacity: 0.9;
+}
+
+.item img:active {
+    transform: scale(0.95);
+}
+
+.item:hover p {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+
+/* =================================================
+   REVEAL ANIMATION (INITIAL STATE)
+================================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+}
+
+
+/* =================================================
+   REVEAL ANIMATION (ACTIVE)
+================================================= */
+.reveal.show {
+    animation: smoothReveal 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation-delay: var(--delay, 0s);
+}
+
+/* Title animation */
+.title.reveal.show {
+    animation: titleReveal 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
+/* =================================================
+   KEYFRAMES
+================================================= */
+@keyframes smoothReveal {
+    from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =================================================
+   RESPONSIVE
+================================================= */
+@media (max-width: 768px) {
+    .items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .title {
+        font-size: 2.3rem;
+        letter-spacing: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .items {
+        grid-template-columns: 1fr;
+    }
+
+    .item img {
+        width: 65px;
+    }
+
+    .title {
+        font-size: 1.9rem;
+        letter-spacing: 2px;
+    }
+
+    .item p {
+        font-size: 0.9rem;
+    }
+}

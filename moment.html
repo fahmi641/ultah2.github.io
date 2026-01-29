@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Song Reminds Me of You</title>
+    <link rel="stylesheet" href="css/moment.css">
+</head>
+
+<body class="page-transition">
+
+<a href="surprise.html" class="back-btn transition-link">← Back</a>
+
+<div class="music-wrapper">
+
+    <div class="ribbon left"></div>
+    <div class="ribbon right"></div>
+
+    <h1 class="title">PULANG GA LUUU🫵🫵🫵</h1>
+
+    <div class="video-frame">
+        <video controls autoplay playsinline>
+            <source src="videos/moment.mp4" type="video/mp4">
+        </video>
+    </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.transition-link').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => window.location.href = link.href, 700);
+    });
+});
+</script>
+
+</body>
+</html>

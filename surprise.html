@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>These Are For You</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/surprise.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="title reveal">BUKANYA DARI KIRI YAWW</h1>
+
+    <div class="items">
+
+        <div class="item reveal" style="--delay: 0.2s;">
+            <a href="memories.html">
+                <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" alt="Memories">
+            </a>
+            <p>Memories</p>
+        </div>
+
+        <div class="item reveal" style="--delay: 0.4s;">
+            <a href="moment.html">
+                <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png" alt="Moment">
+            </a>
+            <p>Moment</p>
+        </div>
+
+        <div class="item reveal" style="--delay: 0.6s;">
+            <a href="kata.html">
+                <img src="https://cdn-icons-png.flaticon.com/512/3159/3159333.png" alt="Letter">
+            </a>
+            <p>Letter</p>
+        </div>
+
+        <div class="item reveal" style="--delay: 0.8s;">
+            <a href="feeling.html">
+                <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png" alt="Feeling">
+            </a>
+            <p>Feeling</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".reveal").forEach(el => {
+        const delay = el.style.getPropertyValue("--delay") || "0s";
+        el.style.animationDelay = delay;
+        el.classList.add("show");
+    });
+});
+</script>
+
+</body>
+</html>
